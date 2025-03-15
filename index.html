@@ -8,11 +8,11 @@
         body { font-family: "Times New Roman", serif; background-color: #f4f4f4; padding: 20px; }
         h1 { color: #333; }
         table { width: 100%; border-collapse: collapse; background: #fff; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }
         th { background: #eee; }
         a { text-decoration: none; color: #007bff; }
         a:hover { text-decoration: underline; }
-        .icon { width: 20px; height: 20px; margin-right: 8px; vertical-align: middle; }
+        .icon { width: 24px; height: 24px; margin-right: 8px; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -51,22 +51,23 @@
 
         function getFileIcon(file) {
             if (file.type === "dir") {
-                return `<img class="icon" src="https://cdn-icons-png.flaticon.com/32/7161/7161323.png">`;
+                return `<img class="icon" src="https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/folder.png">`;
             }
             let ext = file.name.split('.').pop().toLowerCase();
             let icons = {
-                "json": "https://cdn-icons-png.flaticon.com/32/136/136530.png",
-                "sql": "https://cdn-icons-png.flaticon.com/32/168/168526.png",
-                "csv": "https://cdn-icons-png.flaticon.com/32/732/732220.png",
-                "zip": "https://cdn-icons-png.flaticon.com/32/564/564619.png",
-                "py": "https://cdn-icons-png.flaticon.com/32/3098/3098090.png",
-                "txt": "https://cdn-icons-png.flaticon.com/32/3767/3767084.png",
-                "pdf": "https://cdn-icons-png.flaticon.com/32/337/337946.png",
-                "jpg": "https://cdn-icons-png.flaticon.com/32/136/136524.png",
-                "png": "https://cdn-icons-png.flaticon.com/32/136/136530.png",
-                "html": "https://cdn-icons-png.flaticon.com/32/919/919827.png"
+                "json": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/json.png",
+                "sql": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/database.png",
+                "csv": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/database.png",
+                "zip": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/zip.png",
+                "py": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/python.png",
+                "txt": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/text.png",
+                "md": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/text.png",  // Giống TXT
+                "pdf": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/pdf.png",
+                "jpg": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/image.png",
+                "png": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/image.png",
+                "html": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/html.png"
             };
-            return `<img class="icon" src="${icons[ext] || 'https://cdn-icons-png.flaticon.com/32/565/565547.png'}">`;
+            return `<img class="icon" src="${icons[ext] || 'https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/unknown.png'}">`;
         }
 
         fetchFiles();
