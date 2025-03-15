@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPST CDN - Index</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        body { font-family: "Times New Roman", serif; background-color: #f4f4f4; padding: 20px; }
         h1 { color: #333; }
         table { width: 100%; border-collapse: collapse; background: #fff; }
         th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
         th { background: #eee; }
         a { text-decoration: none; color: #007bff; }
         a:hover { text-decoration: underline; }
+        .icon { width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -35,17 +36,36 @@
             tableBody.innerHTML = "";  // Xóa nội dung cũ
 
             files.forEach(file => {
-                if (file.type === "file") {
-                    let fileUrl = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${file.path}`;
-                    let fileSize = (file.size / 1024).toFixed(2) + " KB";
-                    tableBody.innerHTML += `
-                        <tr>
-                            <td><a href="${fileUrl}" target="_blank">${file.name}</a></td>
-                            <td>${fileSize}</td>
-                        </tr>
-                    `;
-                }
+                let fileUrl = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${file.path}`;
+                let fileSize = file.type === "dir" ? "-" : (file.size / 1024).toFixed(2) + " KB";
+                let icon = getFileIcon(file);
+
+                tableBody.innerHTML += `
+                    <tr>
+                        <td><a href="${fileUrl}" target="_blank">${icon} ${file.name}</a></td>
+                        <td>${fileSize}</td>
+                    </tr>
+                `;
             });
+        }
+
+        function getFileIcon(file) {
+            if (file.type === "dir") {
+                return `<img class="icon" src="https://cdn-icons-png.flaticon.com/16/7161/7161323.png">`;
+            }
+            let ext = file.name.split('.').pop().toLowerCase();
+            let icons = {
+                "json": "https://cdn-icons-png.flaticon.com/16/136/136530.png",
+                "sql": "https://cdn-icons-png.flaticon.com/16/168/168526.png",
+                "csv": "https://cdn-icons-png.flaticon.com/16/732/732220.png",
+                "zip": "https://cdn-icons-png.flaticon.com/16/564/564619.png",
+                "py": "https://cdn-icons-png.flaticon.com/16/3098/3098090.png",
+                "txt": "https://cdn-icons-png.flaticon.com/16/3767/3767084.png",
+                "pdf": "https://cdn-icons-png.flaticon.com/16/337/337946.png",
+                "jpg": "https://cdn-icons-png.flaticon.com/16/136/136524.png",
+                "png": "https://cdn-icons-png.flaticon.com/16/136/136530.png"
+            };
+            return `<img class="icon" src="${icons[ext] || 'https://cdn-icons-png.flaticon.com/16/565/565547.png'}">`;
         }
 
         fetchFiles();
