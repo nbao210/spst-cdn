@@ -17,27 +17,38 @@
 <body>
     <h1>Index of /</h1>
     <table>
-        <tr><th>Name</th><th>Size</th><th>Last Modified</th></tr>
-        <script>
-            async function fetchFiles() {
-                let repo = "nbao210/spst-cdn";
-                let branch = "main";
-                let apiUrl = `https://api.github.com/repos/${repo}/contents/`;
-                let response = await fetch(apiUrl);
-                let files = await response.json();
-
-                files.forEach(file => {
-                    if (file.type === "file") {
-                        document.write(`<tr>
-                            <td><a href="${file.download_url}">${file.name}</a></td>
-                            <td>${(file.size / 1024).toFixed(2)} KB</td>
-                            <td>${new Date(file.updated_at).toLocaleString()}</td>
-                        </tr>`);
-                    }
-                });
-            }
-            fetchFiles();
-        </script>
+        <tr><th>Name</th><th>Size</th></tr>
+        <tbody id="file-list">
+            <tr><td colspan="2">Loading...</td></tr>
+        </tbody>
     </table>
+
+    <script>
+        async function fetchFiles() {
+            let repo = "nbao210/spst-cdn";  // Đổi thành repo của bạn
+            let branch = "main";  // Nhánh chính
+            let apiUrl = `https://api.github.com/repos/${repo}/contents/`;
+            let response = await fetch(apiUrl);
+            let files = await response.json();
+
+            let tableBody = document.getElementById("file-list");
+            tableBody.innerHTML = "";  // Xóa nội dung cũ
+
+            files.forEach(file => {
+                if (file.type === "file") {
+                    let fileUrl = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${file.path}`;
+                    let fileSize = (file.size / 1024).toFixed(2) + " KB";
+                    tableBody.innerHTML += `
+                        <tr>
+                            <td><a href="${fileUrl}" target="_blank">${file.name}</a></td>
+                            <td>${fileSize}</td>
+                        </tr>
+                    `;
+                }
+            });
+        }
+
+        fetchFiles();
+    </script>
 </body>
 </html>
