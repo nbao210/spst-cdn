@@ -12,7 +12,7 @@
         th { background: #eee; }
         a { text-decoration: none; color: #007bff; }
         a:hover { text-decoration: underline; }
-        .icon { width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; }
+        .icon { width: 20px; height: 20px; margin-right: 8px; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -51,21 +51,22 @@
 
         function getFileIcon(file) {
             if (file.type === "dir") {
-                return `<img class="icon" src="https://cdn-icons-png.flaticon.com/16/7161/7161323.png">`;
+                return `<img class="icon" src="https://cdn-icons-png.flaticon.com/32/7161/7161323.png">`;
             }
             let ext = file.name.split('.').pop().toLowerCase();
             let icons = {
-                "json": "https://cdn-icons-png.flaticon.com/16/136/136530.png",
-                "sql": "https://cdn-icons-png.flaticon.com/16/168/168526.png",
-                "csv": "https://cdn-icons-png.flaticon.com/16/732/732220.png",
-                "zip": "https://cdn-icons-png.flaticon.com/16/564/564619.png",
-                "py": "https://cdn-icons-png.flaticon.com/16/3098/3098090.png",
-                "txt": "https://cdn-icons-png.flaticon.com/16/3767/3767084.png",
-                "pdf": "https://cdn-icons-png.flaticon.com/16/337/337946.png",
-                "jpg": "https://cdn-icons-png.flaticon.com/16/136/136524.png",
-                "png": "https://cdn-icons-png.flaticon.com/16/136/136530.png"
+                "json": "https://cdn-icons-png.flaticon.com/32/136/136530.png",
+                "sql": "https://cdn-icons-png.flaticon.com/32/168/168526.png",
+                "csv": "https://cdn-icons-png.flaticon.com/32/732/732220.png",
+                "zip": "https://cdn-icons-png.flaticon.com/32/564/564619.png",
+                "py": "https://cdn-icons-png.flaticon.com/32/3098/3098090.png",
+                "txt": "https://cdn-icons-png.flaticon.com/32/3767/3767084.png",
+                "pdf": "https://cdn-icons-png.flaticon.com/32/337/337946.png",
+                "jpg": "https://cdn-icons-png.flaticon.com/32/136/136524.png",
+                "png": "https://cdn-icons-png.flaticon.com/32/136/136530.png",
+                "html": "https://cdn-icons-png.flaticon.com/32/919/919827.png"
             };
-            return `<img class="icon" src="${icons[ext] || 'https://cdn-icons-png.flaticon.com/16/565/565547.png'}">`;
+            return `<img class="icon" src="${icons[ext] || 'https://cdn-icons-png.flaticon.com/32/565/565547.png'}">`;
         }
 
         fetchFiles();
