@@ -26,9 +26,9 @@
 
     <script>
         let repo = "nbao210/spst-cdn";  // Đổi thành repo của bạn
-        let branch = "Bode";  // Nhánh chính
-        let currentPath = "";
-
+        let rootPath = "De";  // Luôn bắt đầu từ thư mục "bode"
+        let currentPath = rootPath;
+        
         async function fetchFiles(path = "") {
             let apiUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
             let response = await fetch(apiUrl);
