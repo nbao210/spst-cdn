@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <h1>Index of /</h1>
+    <h1>Index of /<span id="current-path"></span></h1>
     <table>
         <tr><th>Name</th><th>Size</th></tr>
         <tbody id="file-list">
@@ -25,27 +25,58 @@
     </table>
 
     <script>
-        async function fetchFiles() {
-            let repo = "nbao210/spst-cdn";  // Đổi thành repo của bạn
-            let branch = "main";  // Nhánh chính
-            let apiUrl = `https://api.github.com/repos/${repo}/contents/`;
+        let repo = "nbao210/spst-cdn";  // Đổi thành repo của bạn
+        let branch = "main";  // Nhánh chính
+        let currentPath = "";
+
+        async function fetchFiles(path = "") {
+            let apiUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
             let response = await fetch(apiUrl);
             let files = await response.json();
 
             let tableBody = document.getElementById("file-list");
+            let currentPathElement = document.getElementById("current-path");
+
+            // Cập nhật đường dẫn hiện tại
+            currentPath = path;
+            currentPathElement.textContent = path ? path + '/' : '';
+
             tableBody.innerHTML = "";  // Xóa nội dung cũ
+
+            // Nếu không ở thư mục gốc, thêm đường dẫn "Trở về"
+            if (path) {
+                let parentPath = path.split('/').slice(0, -1).join('/');
+                tableBody.innerHTML += `
+                    <tr>
+                        <td><a href="#" onclick="fetchFiles('${parentPath}')">
+                            <img class="icon" src="https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/folder.png"> ..</a>
+                        </td>
+                        <td>-</td>
+                    </tr>
+                `;
+            }
 
             files.forEach(file => {
                 let fileUrl = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${file.path}`;
                 let fileSize = file.type === "dir" ? "-" : (file.size / 1024).toFixed(2) + " KB";
                 let icon = getFileIcon(file);
 
-                tableBody.innerHTML += `
-                    <tr>
-                        <td><a href="${fileUrl}" target="_blank">${icon} ${file.name}</a></td>
-                        <td>${fileSize}</td>
-                    </tr>
-                `;
+                if (file.type === "dir") {
+                    // Thư mục sẽ gọi lại hàm fetchFiles với đường dẫn của thư mục
+                    tableBody.innerHTML += `
+                        <tr>
+                            <td><a href="#" onclick="fetchFiles('${file.path}')">${icon} ${file.name}</a></td>
+                            <td>${fileSize}</td>
+                        </tr>
+                    `;
+                } else {
+                    tableBody.innerHTML += `
+                        <tr>
+                            <td><a href="${fileUrl}" target="_blank">${icon} ${file.name}</a></td>
+                            <td>${fileSize}</td>
+                        </tr>
+                    `;
+                }
             });
         }
 
