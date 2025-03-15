@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPST CDN - Index</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; background: #fff; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #eee; }
+        a { text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Index of /</h1>
+    <table>
+        <tr><th>Name</th><th>Size</th><th>Last Modified</th></tr>
+        <script>
+            async function fetchFiles() {
+                let repo = "nbao210/spst-cdn";
+                let branch = "main";
+                let apiUrl = `https://api.github.com/repos/${repo}/contents/`;
+                let response = await fetch(apiUrl);
+                let files = await response.json();
+
+                files.forEach(file => {
+                    if (file.type === "file") {
+                        document.write(`<tr>
+                            <td><a href="${file.download_url}">${file.name}</a></td>
+                            <td>${(file.size / 1024).toFixed(2)} KB</td>
+                            <td>${new Date(file.updated_at).toLocaleString()}</td>
+                        </tr>`);
+                    }
+                });
+            }
+            fetchFiles();
+        </script>
+    </table>
+</body>
+</html>
