@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <h1>Index of /<span id="current-path"></span></h1>
+    <h1>Index of /<span id="current-path">De</span></h1>
     <table>
         <tr><th>Name</th><th>Size</th></tr>
         <tbody id="file-list">
@@ -25,11 +25,11 @@
     </table>
 
     <script>
-        let repo = "nbao210/spst-cdn";  // Đổi thành repo của bạn
-        let rootPath = "De";  // Luôn bắt đầu từ thư mục "bode"
-        let currentPath = rootPath;
+        let repo = "nbao210/spst-cdn";  
+        let branch = "main";  
+        let rootPath = "De";  
         
-        async function fetchFiles(path = "") {
+        async function fetchFiles(path = rootPath) {
             let apiUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
             let response = await fetch(apiUrl);
             let files = await response.json();
@@ -37,14 +37,13 @@
             let tableBody = document.getElementById("file-list");
             let currentPathElement = document.getElementById("current-path");
 
-            // Cập nhật đường dẫn hiện tại
-            currentPath = path;
-            currentPathElement.textContent = path ? path + '/' : '';
+            // Cập nhật đường dẫn hiện tại (bỏ "De/" khỏi đầu)
+            currentPathElement.textContent = path.replace(/^De\/?/, "");
 
             tableBody.innerHTML = "";  // Xóa nội dung cũ
 
             // Nếu không ở thư mục gốc, thêm đường dẫn "Trở về"
-            if (path) {
+            if (path !== rootPath) {
                 let parentPath = path.split('/').slice(0, -1).join('/');
                 tableBody.innerHTML += `
                     <tr>
@@ -62,7 +61,6 @@
                 let icon = getFileIcon(file);
 
                 if (file.type === "dir") {
-                    // Thư mục sẽ gọi lại hàm fetchFiles với đường dẫn của thư mục
                     tableBody.innerHTML += `
                         <tr>
                             <td><a href="#" onclick="fetchFiles('${file.path}')">${icon} ${file.name}</a></td>
@@ -92,7 +90,7 @@
                 "zip": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/zip.png",
                 "py": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/python.png",
                 "txt": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/text.png",
-                "md": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/text.png",  // Giống TXT
+                "md": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/text.png",
                 "pdf": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/pdf.png",
                 "jpg": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/image.png",
                 "png": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/image.png",
@@ -101,7 +99,8 @@
             return `<img class="icon" src="${icons[ext] || 'https://raw.githubusercontent.com/nbao210/spst-cdn/main/icons/unknown.png'}">`;
         }
 
-        fetchFiles();
+        // Gọi fetchFiles với thư mục mặc định là "De"
+        fetchFiles("De");
     </script>
 </body>
 </html>
