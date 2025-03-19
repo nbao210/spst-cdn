@@ -76,7 +76,7 @@
             formData.append("file", file);
             formData.append("student_name", studentName);
 
-            let response = await fetch("https://511c-2001-ee0-4694-5e40-8c75-8076-673-ad1e.ngrok-free.app", {
+            let response = await fetch("https://511c-2001-ee0-4694-5e40-8c75-8076-673-ad1e.ngrok-free.app/upload", {
                 method: "POST",
                 body: formData
             });
