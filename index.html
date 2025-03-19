@@ -32,6 +32,11 @@
         button:hover {
             background: #ff4757;
         }
+        #scoreDisplay span {
+            cursor: pointer;
+            color: yellow;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -56,7 +61,7 @@
             <button type="submit">Nộp bài</button>
         </form>
 
-        <h2 id="result"></h2>
+        <h2 id="scoreDisplay">Chưa có kết quả.</h2>
     </div>
 
     <script>
@@ -76,14 +81,50 @@
             formData.append("file", file);
             formData.append("student_name", studentName);
 
-            let response = await fetch("https://511c-2001-ee0-4694-5e40-8c75-8076-673-ad1e.ngrok-free.app/upload", {
+            let response = await fetch("/upload", {
                 method: "POST",
                 body: formData
             });
 
             let result = await response.json();
-            document.getElementById("result").innerText = `Học sinh: ${result.student} - Điểm: ${result.score}`;
+
+            if (result.log_file) {
+                fetchLog(studentName, file.name);
+                if (Notification.permission === "granted") {
+                    new Notification("Nộp bài thành công", { body: "Bài đã được tải lên!" });
+                }
+            }
         });
+
+        async function fetchLog(studentName, fileName) {
+            const logUrl = `/log/${studentName}[${fileName}].log`;
+
+            try {
+                let response = await fetch(logUrl);
+                if (!response.ok) throw new Error("Log file not found");
+
+                let data = await response.text();
+                const match = data.match(/: ([\d,\.]+)/);
+                const score = match ? match[1] : "Không rõ";
+
+                document.getElementById("scoreDisplay").innerHTML = 
+                    `Điểm: <span onclick="showPopup('${data.replace(/\n/g, '\\n')}')">${score}</span>`;
+
+                if (Notification.permission === "granted") {
+                    new Notification("Kết quả chấm", { body: `Điểm: ${score}` });
+                }
+            } catch (error) {
+                document.getElementById("scoreDisplay").innerText = "Chưa có file log.";
+            }
+        }
+
+        function showPopup(logContent) {
+            alert(`Nội dung log:\n${logContent.replace(/\\n/g, '\n')}`);
+        }
+
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+        }
     </script>
 
 </body>
