@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chấm điểm Themis</title>
+</head>
+<body>
+    <h2>Upload bài làm</h2>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Nộp bài</button>
+    <p id="result"></p>
+
+    <script>
+        function uploadFile() {
+            let file = document.getElementById("fileInput").files[0];
+            if (!file) {
+                alert("Vui lòng chọn file!");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("file", file);
+
+            fetch("https://6cee-2001-ee0-4694-5e40-8c75-8076-673-ad1e.ngrok-free.app/upload", { // Thay bằng địa chỉ máy chủ của bạn
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = "Điểm: " + data.score;
+            })
+            .catch(error => console.error("Lỗi:", error));
+        }
+    </script>
+</body>
+</html>
