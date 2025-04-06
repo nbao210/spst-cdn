@@ -1,12 +1,12 @@
 Đề của tỉnh nào đó chịu
-https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/Test.db
+https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/1.7z
 0 0 09:00 1/5
 Đề này của anh Thành (chắc thế)
-https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/Test2.db
+https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/2.7z
 100 999 09:00 1/5
 Đề của tỉnh nào đó chịu
-https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/Test.db
+https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/1.7z
 0 0 09:00 1/5
 Đề này của anh Thành (chắc thế)
-https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/Test2.db
+https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/De/2.7z
 100 999 09:00 1/5
