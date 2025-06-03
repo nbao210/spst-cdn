@@ -1,6 +1,6 @@
 # Phần Mềm Hỗ Trợ Ôn Thi Tin Học: Canfendania Helper & SPST
 
-Dự án này là một hệ thống hỗ trợ ôn thi Tin học toàn diện, kết hợp sức mạnh của **Canfendania Helper** và **SPST - Phần Mềm Thi Tin Học Trẻ & HSG THPT**. Mục tiêu của dự án là giúp học sinh ôn tập và chuẩn bị tốt cho các kỳ thi như **Tin học HSG**, **Tin học trẻ** và **Tốt nghiệp THPT** thông qua các hình thức thi **trắc nghiệm** và **tự luận**.
+Dự án này là một hệ thống hỗ trợ ôn thi Tin học toàn diện, Sản phẩm: **Canfendania Helper** - **SPST - Phần Mềm Thi Tin Học Trẻ & HSG THPT**. Mục tiêu của dự án là giúp học sinh ôn tập và chuẩn bị tốt cho các kỳ thi như **Tin học HSG**, **Tin học trẻ** và **Tốt nghiệp THPT** thông qua các hình thức thi **trắc nghiệm** và **tự luận**.
 
 ---
 
