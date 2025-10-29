@@ -1,0 +1,14 @@
+{
+  "current": {
+    "version": "pre-release1.8",
+    "link": "UNAVAILBLE",
+    "message": "Phiên bản phát hành chính thức đầu tiên, Cho một hành trình của phần mềm.",
+    "release_date": "2025-11-5"
+  },
+  "beta": {
+    "version": "pre-release1.9-beta",
+    "link": "UNAVAILBLE",
+    "message": "UNAVAILBLE",
+    "release_date": "2025-11-02"
+  }
+}
