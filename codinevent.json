@@ -1,0 +1,9 @@
+{
+  "event": {
+    "name": "Chào mừng phần mềm Canfendania Helper - Sự kiện ra mắt",
+    "banner": "https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/banner/welcome.png",
+    "type": "image-only",
+    "start": "2025-10-31",
+    "end": "2025-11-30"
+  }
+}
