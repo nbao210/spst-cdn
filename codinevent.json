@@ -1,7 +1,7 @@
 {
   "event": {
     "name": "Chào mừng phần mềm Canfendania Helper - Sự kiện ra mắt",
-    "description": "Chào mừng bạn đến với sự kiện đặc biệt đánh dấu sự ra đời của phần mềm Canfendania Helper! Đây là công cụ hỗ trợ thông minh, được thiết kế nhằm nâng cao trải nghiệm người dùng trong công việc và học tập. Sự kiện diễn ra từ ngày 31/10/2025 đến 30/11/2025. Hãy cùng khám phá và đón nhận những tiện ích mới mẻ mà Canfendania Helper mang lại!"
+    "description": "Chào mừng bạn đến với sự kiện đặc biệt đánh dấu sự ra đời của phần mềm Canfendania Helper! Đây là công cụ hỗ trợ thông minh, được thiết kế nhằm nâng cao trải nghiệm người dùng trong công việc và học tập. Sự kiện diễn ra từ ngày 31/10/2025 đến 30/11/2025. Hãy cùng khám phá và đón nhận những tiện ích mới mẻ mà Canfendania Helper mang lại!",
     "banner": "https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/banner/welcome.png",
     "type": "image-only",
     "start": "2025-10-31",
