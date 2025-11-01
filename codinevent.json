@@ -7,5 +7,14 @@
     "type": "image-only",
     "start": "2025-10-31",
     "end": "2025-11-30"
-  }
+  },
+  "event1":{
+    "name": "Hành trình mới! Thời đại lập trình",
+    "description": "Bạn đã từng nghĩ đến việc học lập trình nhưng chưa biết bắt đầu từ đâu? Đây chính là thời điểm lý tưởng để bạn khởi động hành trình khám phá thế giới công nghệ. Từ ngày 31/10 đến 30/11/2025, hãy dành thời gian mỗi ngày để học một chút — chỉ cần một chiếc máy tính và một chút tò mò. Chúng tôi đã chuẩn bị sẵn những tài nguyên dễ tiếp cận, phù hợp cho người mới bắt đầu. Đừng chần chừ, hãy bắt đầu ngay hôm nay!",
+    "banner": "https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/banner/event1.png",
+    "link": "https://cfhpaccout.web.app/",
+    "type": "image-only",
+    "start": "2025-10-31",
+    "end": "2025-11-30"
+  },
 }
