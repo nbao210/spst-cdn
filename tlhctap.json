@@ -1,0 +1,33 @@
+[
+  {
+    "id": "w3_python_intro",
+    "title": "Python Tutorial for Beginners",
+    "description": "Học những kiến thức cơ bản về lập trình Python, từ cú pháp đến các cấu trúc dữ liệu.",
+    "platform": "W3Schools",
+    "category": "Python",
+    "level": "Cơ bản",
+    "url": "https://www.w3schools.com/python/",
+    "icon": "w3schools_logo.png",
+    "nenxem": true
+  },
+  {
+    "id": "gfg_cpp_dsa",
+    "title": "Data Structures and Algorithms in C++",
+    "description": "Nắm vững các cấu trúc dữ liệu và giải thuật phổ biến với các ví dụ bằng C++.",
+    "platform": "GeeksforGeeks",
+    "category": "C++",
+    "level": "Trung cấp",
+    "url": "https://www.geeksforgeeks.org/data-structures/",
+    "icon": "gfg_logo.png"
+  },
+  {
+    "id": "fcc_js_es6",
+    "title": "JavaScript Algorithms and Data Structures",
+    "description": "Khóa học toàn diện về JavaScript, bao gồm ES6, lập trình hướng đối tượng và giải thuật.",
+    "platform": "freeCodeCamp",
+    "category": "Web",
+    "level": "Nâng cao",
+    "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+    "icon": "fcc_logo.png"
+  }
+]
