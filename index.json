@@ -1,10 +1,18 @@
 {
-  "08122025": {
-    "name": "Đề thi tỉnh Sơn La 2024-2025",
-    "socautn": 10,
-    "socautl": 10,
-    "thoigian": 1250,
-    "mota": "Đề thi cấp THCS",
-    "link": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/08122025.contestpack"
+  "1012202510020": {
+    "name": "Đề lập trình và Python cơ bản cho học sinh lớp 8",
+    "socautn": 20,
+    "socautl": 5,
+    "thoigian": 1500,
+    "mota": "Đề lập trình và Python cơ bản cho học sinh lớp 8",
+    "link": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/De/De_lap_trinh_va_Python_co_ban_cho_hoc_sinh_lop_8.contestpack"
+  },
+  "1012202510033": {
+    "name": "Đề ôn tập trắc nghiệm cơ bản cho học sinh lớp 7-8",
+    "socautn": 20,
+    "socautl": 0,
+    "thoigian": 900,
+    "mota": "Đề này sẽ giúp học sinh nắm bắt được những khái niệm cơ bản về tin học lớp 8, không có lập trình khó nhọc",
+    "link": "https://raw.githubusercontent.com/nbao210/spst-cdn/main/De/De_on_tap_trac_nghiem_co_ban_cho_hoc_sinh_lop_7-8.contestpack"
   }
 }
