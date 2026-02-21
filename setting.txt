@@ -1,0 +1,4 @@
+SETTING FILE - DO NOT EDIT
+[FULLSCREEN] 0
+[SERVER] https://raw.githubusercontent.com/nbao210/spst-cdn/refs/heads/main/index.txt not leave the entry empty.
+[OLDGUI] 1
